@@ -1,3 +1,5 @@
+import ParticleCanvas from './ui//ParticleCanvas'
+
 export default function HeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -9,6 +11,9 @@ export default function HeroBackground() {
         }}
       />
 
+      {/* 🔥 Particle layer */}
+      <ParticleCanvas />
+
       {/* Glow blobs */}
       <div className="absolute top-1/4 left-1/4 w-[28rem] h-[28rem] bg-purple-600/40 rounded-full blur-3xl animate-pulse" />
       <div
@@ -16,7 +21,7 @@ export default function HeroBackground() {
         style={{ animationDelay: '5s' }}
       />
 
-      {/* Noise / vignette (optional but 🔥) */}
+      {/* Vignette */}
       <div className="absolute inset-0 bg-black/20" />
     </div>
   )

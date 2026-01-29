@@ -11,7 +11,13 @@ export function useHeroScrollAnimation({
   headerTextRef,
 }) {
   useLayoutEffect(() => {
-    if (!heroRef.current || !heroTextRef.current || !headerTextRef.current) return
+    if (
+      !heroRef.current ||
+      !heroTextRef.current ||
+      !headerRef.current ||
+      !headerTextRef.current
+    ) return
+
 
     const ctx = gsap.context(() => {
       const getScale = () => {
@@ -46,13 +52,15 @@ export function useHeroScrollAnimation({
           onUpdate: self => {
             if (self.progress > 0.88) {
               const p = (self.progress - 0.88) / 0.12
-              heroTextRef.current.style.opacity = 1 - p
-              headerTextRef.current.style.opacity = p
-              headerTextRef.current.style.transform =
-                `translateX(-50%) translateY(${(1 - p) * 30}px)`
+
+              gsap.set(heroTextRef.current, { opacity: 1 - p })
+              gsap.set(headerTextRef.current, {
+                opacity: p,
+                y: (1 - p) * 30,
+              })
             } else {
-              heroTextRef.current.style.opacity = 1
-              headerTextRef.current.style.opacity = 0
+              gsap.set(heroTextRef.current, { opacity: 1 })
+              gsap.set(headerTextRef.current, { opacity: 0, y: 30 })
             }
           },
         },
@@ -69,8 +77,35 @@ export function useHeroScrollAnimation({
         },
       })
 
-      
+      gsap.fromTo(
+        '.hero-fade',
+        { opacity: 0 },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '#about',
+            start: 'top bottom',
+            end: 'top center',
+            scrub: true,
+          },
+        }
+      )
+
+      gsap.fromTo(
+        headerRef.current,
+        { y: -80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+        }
+      )
+
+
     })
+
+
 
     return () => ctx.revert()
   }, [])
