@@ -60,7 +60,7 @@ export default function Hero({ heroRef, heroTextRef }) {
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Pruthavik this side
+          Pruthavik here
         </h1>
 
         <p className="mt-6 text-xl text-gray-400 font-light">

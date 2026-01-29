@@ -24,7 +24,7 @@ export default function Skills() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 space-y-6">
+      <div className="max-w-full mx-auto px-6 space-y-6">
         {/* Row 1 - moves left */}
         <div
           className="relative overflow-hidden"
