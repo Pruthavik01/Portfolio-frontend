@@ -66,6 +66,7 @@ export default function Hero({ heroRef, heroTextRef }) {
         <p className="mt-6 text-xl text-gray-400 font-light">
           Scroll to experience the magic
         </p>
+        
       </div>
     </section>
   )

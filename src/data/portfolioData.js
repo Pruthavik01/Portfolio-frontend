@@ -229,9 +229,10 @@ export const miniGamesData = [
   {
     id: 3,
     title: "Tango Game",
+    link:"https://ptango.netlify.app/",
     description: "check you logical thinking by solving the tango puzzle",
     icon: "/tango.png", // ✅ correct
-    color: "#95E1D3",
+    color: "#F38181",
     route: "/games/snake",
   },
   {
@@ -239,7 +240,7 @@ export const miniGamesData = [
     title: "2048",
     description: "Number puzzle game objective is to slide numbered tiles",
     icon: "/2048.png", // ✅ correct
-    color: "#F38181",
+    color: "#95E1D3",
     route: "/games/2048",
   },
 ];
